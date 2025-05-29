@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivate Daily - Transformative Speeches</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #ff6b6b, #ffa726, #42a5f5, #ab47bc);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-quote {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            font-style: italic;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .quote-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .quote-2 {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .quote-3 {
+            top: 40%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .features-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .stats-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #8e44ad, #c0392b);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            color: #ffa726;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .video-showcase {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a252f, #2c3e50);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .video-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .video-description {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            text-align: center;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .newsletter-button {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            padding: 50px 20px;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-link {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .floating-quote {
+                display: none;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-elements">
+            <div class="floating-quote quote-1">
+                "Success starts with self-belief"
+            </div>
+            <div class="floating-quote quote-2">
+                "Dream big, work hard"
+            </div>
+            <div class="floating-quote quote-3">
+                "Your mindset is everything"
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">MOTIVATE DAILY</h1>
+            <p class="hero-subtitle">Transformative speeches that ignite your inner fire and unlock your unlimited potential</p>
+            <a href="#" class="cta-button pulse" onclick="subscribeToChannel()">🔥 SUBSCRIBE NOW</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Channel?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Daily Motivation</h3>
+                    <p>Fresh, powerful speeches delivered every day to keep you inspired and focused on your goals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Mindset Transformation</h3>
+                    <p>Scientifically-backed content designed to rewire your thinking patterns for success.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">High-Energy Content</h3>
+                    <p>Dynamic presentations that energize your spirit and motivate immediate action.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3 class="feature-title">Life-Changing Stories</h3>
+                    <p>Real success stories and proven strategies from industry leaders and achievers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Action-Oriented</h3>
+                    <p>Practical advice and actionable steps you can implement immediately in your life.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3 class="feature-title">Premium Quality</h3>
+                    <p>Professional production, crystal-clear audio, and engaging visual presentations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="250000">0</span>
+                    <span class="stat-label">Subscribers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="500">0</span>
+                    <span class="stat-label">Motivational Videos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50000000">0</span>
+                    <span class="stat-label">Total Views</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="195">0</span>
+                    <span class="stat-label">Countries Reached</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section class="video-showcase">
+        <div class="container">
+            <h2 class="section-title">Featured Content</h2>
+            <div class="video-grid">
+                <div class="video-card" onclick="playVideo('motivation1')">
+                    <div class="video-thumbnail">▶️</div>
+                    <div class="video-info">
+                        <h3 class="video-title">UNLEASH YOUR POTENTIAL</h3>
+                        <p class="video-description">Break through mental barriers and discover the champion within you.</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="playVideo('success1')">
+                    <div class="video-thumbnail">▶️</div>
+                    <div class="video-info">
+                        <h3 class="video-title">THE SUCCESS MINDSET</h3>
+                        <p class="video-description">Master the psychological principles that separate winners from dreamers.</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="playVideo('discipline1')">
+                    <div class="video-thumbnail">▶️</div>
+                    <div class="video-info">
+                        <h3 class="video-title">DISCIPLINE EQUALS FREEDOM</h3>
+                        <p class="video-description">Learn how self-discipline becomes the key to ultimate personal freedom.</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="playVideo('goals1')">
+                    <div class="video-thumbnail">▶️</div>
+                    <div class="video-info">
+                        <h3 class="video-title">CRUSH YOUR GOALS</h3>
+                        <p class="video-description">Strategic goal-setting techniques that guarantee extraordinary results.</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="playVideo('mindset1')">
+                    <div class="video-thumbnail">▶️</div>
+                    <div class="video-info">
+                        <h3 class="video-title">MILLIONAIRE MINDSET</h3>
+                        <p class="video-description">Adopt the thinking patterns of the world's most successful entrepreneurs.</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="playVideo('transformation1')">
+                    <div class="video-thumbnail">▶️</div>
+                    <div class="video-info">
+                        <h3 class="video-title">TRANSFORMATION JOURNEY</h3>
+                        <p class="video-description">Real stories of people who completely transformed their lives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2 class="section-title">Stay Motivated Daily</h2>
+            <p>Get exclusive motivational content, behind-the-scenes insights, and early access to new videos.</p>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link" title="YouTube">📺</a>
+                <a href="#" class="social-link" title="Instagram">📷</a>
+                <a href="#" class="social-link" title="Twitter">🐦</a>
+                <a href="#" class="social-link" title="Facebook">📘</a>
+                <a href="#" class="social-link" title="TikTok">🎵</a>
+            </div>
+            <p>&copy; 2025 Motivate Daily. All rights reserved. Transform your life, one speech at a time.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animated counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Intersection Observer for counter animation
+        const observerOptions = {
+            threshold: 0.7
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Subscribe to channel function
+        function subscribeToChannel() {
+            // This would typically redirect to the YouTube channel
+            alert('Redirecting to YouTube channel... 🚀\n\nDon\'t forget to hit the subscribe button and ring the notification bell!');
+            // window.open('https://youtube.com/yourchannel', '_blank');
+        }
+
+        // Play video function
+        function playVideo(videoId) {
+            alert(`Opening video: ${videoId} 🎬\n\nThis would typically open the specific video on YouTube!`);
+            // window.open(`https://youtube.com/watch?v=${videoId}`, '_blank');
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input').value;
+            alert(`Thank you for subscribing! 🎉\n\nWe'll send daily motivation to: ${email}`);
+            event.target.reset();
+        }
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to floating quotes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const quotes = document.querySelectorAll('.floating-quote');
+            
+            quotes.forEach((quote, index) => {
+                const speed = 0.5 + (index * 0.1);
+                quote.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
